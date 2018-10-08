@@ -20,11 +20,11 @@ class MailSubscriptionServiceProvider extends ServiceProvider
         $this->loadTranslationsFrom(__DIR__.'/resources/lang', 'translate-mailsubscription');
 
         $this->publishes([
-            __DIR__.'/config/mailsubscription.php' => config_path('mailsubscription.php')
+            __DIR__.'/config/mailsubscription.php' => config_path('mailsubscription.php'),
         ], 'config');
 
         $this->publishes([
-            __DIR__.'/migrations/' => database_path('migrations')
+            __DIR__.'/migrations/' => database_path('migrations'),
         ], 'migrations');
     }
 }

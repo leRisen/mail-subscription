@@ -26,7 +26,7 @@ class MailSubscriptionController extends Controller
     public function subscribe(Request $request)
     {
         $this->validate($request, [
-            'email' => 'required|email'
+            'email' => 'required|email',
         ]);
 
         $email = $request->email;
@@ -36,7 +36,7 @@ class MailSubscriptionController extends Controller
             $code = 422;
             $data = [
                 'success' => false,
-                'message' => trans('translate-mailsubscription::subscription.alreadyExists')
+                'message' => trans('translate-mailsubscription::subscription.alreadyExists'),
             ];
         } else {
             $this->subscription->create(['email' => $email]);
@@ -44,7 +44,7 @@ class MailSubscriptionController extends Controller
             $code = 200;
             $data = [
                 'success' => true,
-                'message' => trans('translate-mailsubscription::subscription.successfully')
+                'message' => trans('translate-mailsubscription::subscription.successfully'),
             ];
         }
 
