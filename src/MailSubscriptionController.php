@@ -2,9 +2,9 @@
 
 namespace leRisen\MailSubscription;
 
+use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Illuminate\Foundation\Validation\ValidatesRequests;
 use leRisen\MailSubscription\Models\Subscription;
 
 class MailSubscriptionController extends Controller

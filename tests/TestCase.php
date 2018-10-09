@@ -2,7 +2,6 @@
 
 namespace leRisen\MailSubscription\Tests;
 
-use Mockery;
 use leRisen\MailSubscription\MailSubscriptionServiceProvider;
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
 
@@ -17,14 +16,14 @@ class TestCase extends OrchestraTestCase
     {
         parent::setUp();
 
-        $this->app->setBasePath(__DIR__ . '/../');
+        $this->app->setBasePath(__DIR__.'/../');
         $router = $this->app['router'];
 
         $router->post('feedback', '\leRisen\MailSubscription\MailSubscriptionController@subscribe');
 
         $this->loadMigrationsFrom([
             '--database' => 'mailsubscription',
-            '--path' => realpath(__DIR__ . '/migrations')
+            '--path'     => realpath(__DIR__.'/migrations'),
         ]);
     }
 
