@@ -2,8 +2,8 @@
 
 namespace leRisen\MailSubscription\Providers;
 
-use leRisen\MailSubscription\Console\Commands;
 use Illuminate\Support\ServiceProvider;
+use leRisen\MailSubscription\Console\Commands;
 
 class MailSubscriptionServiceProvider extends ServiceProvider
 {

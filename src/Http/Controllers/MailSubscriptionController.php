@@ -19,8 +19,7 @@ class MailSubscriptionController extends Controller
     /**
      * Constuctor.
      *
-     * @param  Subscription $subscription
-     *
+     * @param Subscription $subscription
      */
     public function __construct(Subscription $subscription)
     {
@@ -30,7 +29,7 @@ class MailSubscriptionController extends Controller
     /**
      * Checks if email is subscribed.
      *
-     * @param  string $email
+     * @param string $email
      *
      * @return Subscription
      */
@@ -42,7 +41,7 @@ class MailSubscriptionController extends Controller
     /**
      * Subscribed email to the newsletter.
      *
-     * @param  Request $request
+     * @param Request $request
      *
      * @return \Illuminate\Http\Response
      */
