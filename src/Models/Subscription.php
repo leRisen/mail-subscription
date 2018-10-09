@@ -2,8 +2,8 @@
 
 namespace leRisen\MailSubscription\Models;
 
-use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 use leRisen\MailSubscription\Notifications\VerifySubscription;
 
 class Subscription extends Model
@@ -38,7 +38,7 @@ class Subscription extends Model
     }
 
     /**
-     * Send the user a subscription verification
+     * Send the user a subscription verification.
      *
      * @return void
      */

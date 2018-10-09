@@ -63,7 +63,7 @@ class MailSubscriptionController extends Controller
         } else {
             $sub = $this->subscription->create([
                 'email' => $email,
-                'code' => str_random(22)
+                'code'  => str_random(22),
             ]);
 
             $sub->sendVerification();
@@ -81,7 +81,7 @@ class MailSubscriptionController extends Controller
     /**
      * Verify code for email.
      *
-     * @param  string $code
+     * @param string $code
      *
      * @return \Illuminate\Http\Response
      */
