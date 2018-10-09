@@ -1,6 +1,6 @@
 <?php
 
-namespace leRisen\MailSubscription;
+namespace leRisen\MailSubscription\Http\Controllers;
 
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
@@ -16,23 +16,43 @@ class MailSubscriptionController extends Controller
      */
     protected $subscription;
 
+    /**
+     * Constuctor.
+     *
+     * @param  Subscription $subscription
+     *
+     */
     public function __construct(Subscription $subscription)
     {
         $this->subscription = $subscription;
     }
 
+    /**
+     * Checks if email is subscribed.
+     *
+     * @param  string $email
+     *
+     * @return Subscription
+     */
     public function subscribed($email)
     {
         return $this->subscription->where('email', $email)->first();
     }
 
+    /**
+     * Subscribe email to the newsletter.
+     *
+     * @param  Request $request
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function subscribe(Request $request)
     {
         $this->validate($request, [
-            'email' => 'required|email|max:255',
+            'email' => 'required|email',
         ]);
 
-        $email = $request->email;
+        $email = $request->input('email');
         $subscribed = $this->subscribed($email);
 
         if ($subscribed) {

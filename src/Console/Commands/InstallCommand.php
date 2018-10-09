@@ -1,9 +1,9 @@
 <?php
 
-namespace leRisen\MailSubscription\Console;
+namespace leRisen\MailSubscription\Console\Commands;
 
 use Illuminate\Console\Command;
-use leRisen\MailSubscription\MailSubscriptionServiceProvider;
+use leRisen\MailSubscription\Providers\MailSubscriptionServiceProvider;
 
 class InstallCommand extends Command
 {
@@ -38,11 +38,11 @@ class InstallCommand extends Command
      */
     public function handle()
     {
-        $this->info('Publishing config & database migration');
         $this->call('vendor:publish', ['--provider' => MailSubscriptionServiceProvider::class]);
+        $this->info('Publishing config & database migration <info>✔</info>');
 
-        $this->info('Migrating `mail_subscribers` table into your application');
         $this->call('migrate');
+        $this->info('Migrating `mail_subscribers` table into your application <info>✔</info>');
 
         $this->info('Package successfully installed! Use ^^');
     }

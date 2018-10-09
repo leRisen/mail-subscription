@@ -1,7 +1,7 @@
 {
     "name": "le-risen/mail-subscription",
     "type": "lib",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "license": "MIT",
     "homepage": "https://github.com/leRisen/mail-subscription",
     "description": "A laravel package for subscribe to the newsletter",
@@ -20,7 +20,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "leRisen\\MailSubscription\\MailSubscriptionServiceProvider"
+                "leRisen\\MailSubscription\\Providers\\MailSubscriptionServiceProvider"
             ]
         }
     },
@@ -36,7 +36,7 @@
     },
     "autoload": {
         "psr-4": {
-            "leRisen\\MailSubscription\\": "src"
+            "leRisen\\MailSubscription\\": "src/"
         }
     },
     "autoload-dev": {
