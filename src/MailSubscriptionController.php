@@ -2,12 +2,15 @@
 
 namespace leRisen\MailSubscription;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
+use Illuminate\Foundation\Validation\ValidatesRequests;
 use leRisen\MailSubscription\Models\Subscription;
 
 class MailSubscriptionController extends Controller
 {
+    use ValidatesRequests;
+
     /**
      * @var Subscription
      */
@@ -26,7 +29,7 @@ class MailSubscriptionController extends Controller
     public function subscribe(Request $request)
     {
         $this->validate($request, [
-            'email' => 'required|email',
+            'email' => 'required|email|max:255',
         ]);
 
         $email = $request->email;
