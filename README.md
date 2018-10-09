@@ -19,6 +19,7 @@ a laravel package for subscribe to the newsletter
 - PHP 7.0+
 - [Composer](https://getcomposer.org)
 - [Laravel](https://laravel.com)
+- Connected and configured mail server
 
 ### Install
 

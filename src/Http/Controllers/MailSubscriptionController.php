@@ -40,7 +40,7 @@ class MailSubscriptionController extends Controller
     }
 
     /**
-     * Subscribe email to the newsletter.
+     * Subscribed email to the newsletter.
      *
      * @param  Request $request
      *
@@ -62,7 +62,12 @@ class MailSubscriptionController extends Controller
                 'message' => trans('translate-mailsubscription::subscription.alreadyExists'),
             ];
         } else {
-            $this->subscription->create(['email' => $email]);
+            $sub = $this->subscription->create([
+                'email' => $email,
+                'code' => str_random(22)
+            ]);
+
+            $sub->sendVerification();
 
             $code = 200;
             $data = [
@@ -72,5 +77,20 @@ class MailSubscriptionController extends Controller
         }
 
         return response()->json($data, $code);
+    }
+
+    /**
+     * Verify code for email.
+     *
+     * @param  string $code
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function verify($code)
+    {
+        $this->subscription->where('code', $code)->firstOrFail()
+            ->update(['code' => null]);
+
+        return redirect(config('mailsubscription.redirectAfterVerify', '/'));
     }
 }
