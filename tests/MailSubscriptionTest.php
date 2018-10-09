@@ -2,9 +2,9 @@
 
 namespace leRisen\MailSubscription\Tests;
 
-use leRisen\MailSubscription\Models\Subscription;
-use Illuminate\Validation\ValidationException;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Validation\ValidationException;
+use leRisen\MailSubscription\Models\Subscription;
 
 class MailSubscriptionTest extends TestCase
 {
@@ -43,7 +43,7 @@ class MailSubscriptionTest extends TestCase
             ->assertStatus(422)
             ->assertExactJson([
                 'success' => false,
-                'message' => 'This mail has already been subscribed to the newsletter!'
+                'message' => 'This mail has already been subscribed to the newsletter!',
             ]);
     }
 
