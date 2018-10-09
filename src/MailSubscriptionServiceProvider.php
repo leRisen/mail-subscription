@@ -26,5 +26,9 @@ class MailSubscriptionServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/migrations/' => database_path('migrations'),
         ], 'migrations');
+
+        if ($this->app->runningInConsole()) {
+            $this->commands(Console\InstallCommand::class);
+        }
     }
 }
