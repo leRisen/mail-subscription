@@ -16,7 +16,7 @@ class MailSubscriptionTest extends TestCase
             ->assertStatus(200)
             ->assertExactJson([
                 'success' => true,
-                'message' => 'You successfully subscribed to the newsletter!'
+                'message' => 'You successfully subscribed to the newsletter!',
             ]);
     }
 
@@ -28,7 +28,7 @@ class MailSubscriptionTest extends TestCase
             ->assertStatus(302)
             ->assertRedirect(url('/'))
             ->assertSessionHasErrors([
-                'email' => 'The email field is required.'
+                'email' => 'The email field is required.',
             ]);
     }
 
@@ -40,7 +40,7 @@ class MailSubscriptionTest extends TestCase
             ->assertStatus(302)
             ->assertRedirect(url('/'))
             ->assertSessionHasErrors([
-                'email' => 'The email must be a valid email address.'
+                'email' => 'The email must be a valid email address.',
             ]);
     }
 
@@ -57,7 +57,7 @@ class MailSubscriptionTest extends TestCase
             ->assertStatus(302)
             ->assertRedirect(url('/'))
             ->assertSessionHasErrors([
-                'email' => 'The email may not be greater than 255 characters.'
+                'email' => 'The email may not be greater than 255 characters.',
             ]);
     }
 }
